@@ -8,6 +8,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h2>Going to use this repo to test weird React.Child issues that I'm having</h2>
+          <div>Had to get the dev branch set up</div>
         </header>
       </div>
     );
