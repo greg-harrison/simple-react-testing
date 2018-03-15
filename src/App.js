@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import map from 'lodash/map'
 import { cardData } from './assets/data'
+import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 
 import './App.css';
 
@@ -16,6 +17,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <HorizontalSplit
+          leftSide={
+            (<div>HELLO WORLD</div>)
+          }
+          rightSide={
+            (<div>HELLO TEST</div>)
+          }
+        />
       </div>
     );
   }
