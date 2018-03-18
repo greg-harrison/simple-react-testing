@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
-import { cardData } from './assets/data'
+import React, {
+  Component
+} from 'react';
+import {
+  cardData
+} from './assets/data'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
 
@@ -16,19 +20,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <HorizontalSplit
-          leftSide={
-            (
-              <div>
-                <Toggle onToggle={on => console.log('toggle', on)} />
-              </div>
-            )
-          }
+      <div className="App" >
+        <HorizontalSplit leftSide={
+          (<div>
+            <Toggle onToggle={
+              on => console.log('toggle', on)
+            }
+            />
+          </div>
+          )
+        }
           rightSide={
-            (<div>HELLO TEST</div>)
-          }
-        />
+            (<div> HELLO TEST </div>)} />
       </div>
     );
   }
