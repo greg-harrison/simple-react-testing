@@ -8,6 +8,7 @@ import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitL
 import Toggle from './components/toggle/toggle'
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
   constructor(props) {
@@ -21,15 +22,17 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        <HorizontalSplit leftSide={
-          (<div>
-            <Toggle onToggle={
-              on => console.log('toggle', on)
-            }
-            />
-          </div>
-          )
-        }
+        <HorizontalSplit
+          className="w-100"
+          leftSide={
+            (<div>
+              <Toggle onToggle={
+                on => console.log('toggle', on)
+              }
+              />
+            </div>
+            )
+          }
           rightSide={
             (<div> HELLO TEST </div>)} />
       </div>
