@@ -6,6 +6,7 @@ import {
 } from './assets/data'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
+import DisplayCard from './components/displayCard/displayCard'
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -22,19 +23,22 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        <HorizontalSplit
-          className="w-100"
-          leftSide={
-            (<div>
-              <Toggle onToggle={
-                on => console.log('toggle', on)
-              }
-              />
-            </div>
-            )
-          }
-          rightSide={
-            (<div> HELLO TEST </div>)} />
+        <DisplayCard
+          className="col-6"
+          cardTitle='HorizontalSplit Component'
+        >
+          <HorizontalSplit
+            className="w-100"
+            leftSide={(<div> Left Side </div>)}
+            rightSide={(<div> Right Side </div>)} />
+        </DisplayCard>
+        <DisplayCard
+          className="col-6"
+          cardTitle='Toggle Component'>
+          <Toggle onToggle={
+            on => console.log('toggle', on)
+          } />
+        </DisplayCard>
       </div>
     );
   }
