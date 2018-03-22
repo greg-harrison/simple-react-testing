@@ -43,6 +43,16 @@ class App extends Component {
               } />
             </DisplayCard>
           </div>
+          <div className="row">
+            {this.state.cardData.map((item) => (
+              <DisplayCard
+                className="col-6"
+                cardTitle={item.title}
+              >
+                <p>{item.description}</p>
+              </DisplayCard>
+            ))}
+          </div>
         </div>
       </div>
     );
