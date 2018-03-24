@@ -1,5 +1,14 @@
+body, html {
+  height: 100%;
+}
 .App {
   text-align: center;
+  background-color: rgba(0,0,0,.03);
+  height: -webkit-fill-available;
+}
+
+.App>.container>.row {
+  margin: 10px 0;
 }
 
 .App-logo {
@@ -30,3 +39,8 @@
 .flex-container {
   display: flex;
 }
+
+.displayCard {
+  padding: 10px;
+}
+

@@ -24,6 +24,9 @@ class App extends React.Component {
       <div className="App">
         <div className="container">
           <div className="row">
+            <SearchBar className="test w-100" />
+          </div>
+          <div className="row">
             <DisplayCard
               className="col-6"
               cardTitle='HorizontalSplit Component'
@@ -40,11 +43,6 @@ class App extends React.Component {
               <Toggle onToggle={
                 on => console.log('toggle', on)
               } />
-            </DisplayCard>
-          </div>
-          <div className="row">
-            <DisplayCard cardTitle="Search Input">
-              <SearchBar className="test" />
             </DisplayCard>
           </div>
           <div className="row">
