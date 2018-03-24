@@ -1,17 +1,16 @@
-import React, {
-  Component
-} from 'react';
+import React from 'react';
 import {
   cardData
 } from './assets/data'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
 import DisplayCard from './components/displayCard/displayCard'
+import { SearchBar } from './components/searchBar/searchBar'
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
 
@@ -41,6 +40,11 @@ class App extends Component {
               <Toggle onToggle={
                 on => console.log('toggle', on)
               } />
+            </DisplayCard>
+          </div>
+          <div className="row">
+            <DisplayCard cardTitle="Search Input">
+              <SearchBar className="test" />
             </DisplayCard>
           </div>
           <div className="row">
