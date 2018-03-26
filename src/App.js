@@ -5,10 +5,12 @@ import {
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
 import DisplayCard from './components/displayCard/displayCard'
+import NumberScroller from './components/numberScroller/numberScroller'
 import { SearchBar } from './components/searchBar/searchBar'
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Number } from 'core-js';
 
 class App extends React.Component {
   constructor(props) {
@@ -54,6 +56,9 @@ class App extends React.Component {
                 <p>{item.description}</p>
               </DisplayCard>
             ))}
+          </div>
+          <div className="row">
+            <NumberScroller num={4} />
           </div>
         </div>
       </div>
