@@ -5,7 +5,7 @@ import {
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
 import DisplayCard from './components/displayCard/displayCard'
-import NumberScroller from './components/numberScroller/numberScroller'
+import AnimatedNumber from 'react-animated-number'
 import { SearchBar } from './components/searchBar/searchBar'
 
 import './App.css';
@@ -58,7 +58,18 @@ class App extends React.Component {
             ))}
           </div>
           <div className="row">
-            <NumberScroller num={4} />
+            <AnimatedNumber
+              value={300}
+              initialValue={1}
+              style={{
+                transition: '0.8s ease-out',
+                fontSize: '2rem',
+                transitionProperty:
+                  'background-color, color, opacity'
+              }}
+              stepPrecision={0}
+              duration={300}
+            />
           </div>
         </div>
       </div>
