@@ -1,6 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class DisplayCard extends React.Component {
+  static propTypes = {
+    cardTitle: PropTypes.string,
+    children: PropTypes.node
+  }
+  static defaultProps = {
+    cardTitle: '',
+    children: <span></span>
+  }
+
+  static defaultProps = {
+    onToggle: () => { }
+  }
+
   shouldComponentUpdate() {
     return false;
   }
