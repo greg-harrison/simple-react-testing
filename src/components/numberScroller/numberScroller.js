@@ -8,25 +8,26 @@ export default class NumberScroller extends React.Component {
   //  set the actual value to the item
   state = { num: 0 }
 
+  runLoop() {
+    console.log('runLoop');
+    for (var x; x <= 10; x++) {
+      this.setState({ num: Math.random })
+      this.forceUpdate()
+    }
+  }
+
   componentDidMount() {
     console.log('mounted');
   }
 
+  componentDidUpdate() {
+    console.log('update');
+  }
+
+
+
   render() {
-    let x = 0
-    for (x; x < 10; x++) {
-      this.setState({
-        num: Math.abs(Math.random)
-      })
-    }
-    if (x >= 10) {
-      this.setState({
-        num: this.props.num
-      })
-    }
-
-
-    console.log('x', x);
+    this.runLoop()
 
     return (
       <div>
