@@ -1,20 +1,18 @@
 import React from 'react';
-import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './store/reducers'
 import {
   cardData
 } from './assets/data'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
 import DisplayCard from './components/displayCard/displayCard'
-import AnimatedNumber from 'react-animated-number'
-import { SearchBar } from './components/searchBar/searchBar'
+import TodoForm from './containers/todoForm'
+
+import store from './store'
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const store = createStore(rootReducer)
 
 class App extends React.Component {
   constructor(props) {
@@ -30,9 +28,6 @@ class App extends React.Component {
       <Provider store={store}>
         <div className="App">
           <div className="container">
-            <div className="row">
-              <SearchBar className="test w-100" />
-            </div>
             <div className="row">
               <DisplayCard
                 className="col-6"
@@ -53,28 +48,7 @@ class App extends React.Component {
               </DisplayCard>
             </div>
             <div className="row">
-              {this.state.cardData.map((item) => (
-                <DisplayCard
-                  className="col-6"
-                  cardTitle={item.title}
-                >
-                  <p>{item.description}</p>
-                </DisplayCard>
-              ))}
-            </div>
-            <div className="row">
-              <AnimatedNumber
-                value={300}
-                initialValue={1}
-                style={{
-                  transition: '0.8s ease-out',
-                  fontSize: '2rem',
-                  transitionProperty:
-                    'background-color, color, opacity'
-                }}
-                stepPrecision={0}
-                duration={300}
-              />
+              <TodoForm />
             </div>
           </div>
         </div>
