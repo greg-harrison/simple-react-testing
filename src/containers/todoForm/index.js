@@ -12,6 +12,8 @@ const TodoForm = ({ addTodo }) => {
       return
     }
     addTodo(titleInput.value, descriptionInput.value)
+    titleInput.value = ''
+    descriptionInput.value = ''
   }
 
   return (

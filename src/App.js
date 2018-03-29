@@ -7,6 +7,7 @@ import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitL
 import Toggle from './components/toggle/toggle'
 import DisplayCard from './components/displayCard/displayCard'
 import TodoForm from './containers/todoForm'
+import TodoList from './containers/todoList'
 
 import store from './store'
 
@@ -49,6 +50,7 @@ class App extends React.Component {
             </div>
             <div className="row">
               <TodoForm />
+              <TodoList />
             </div>
           </div>
         </div>

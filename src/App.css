@@ -44,3 +44,7 @@ body, html {
   padding: 10px;
 }
 
+.displayCard.completed>.card-header{
+  background-color: red;
+  color: white;
+}
