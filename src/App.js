@@ -1,4 +1,6 @@
 import React from 'react';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
 import {
   cardData
 } from './assets/data'
@@ -23,56 +25,58 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="container">
-          <div className="row">
-            <SearchBar className="test w-100" />
-          </div>
-          <div className="row">
-            <DisplayCard
-              className="col-6"
-              cardTitle='HorizontalSplit Component'
-            >
-              <HorizontalSplit
-                className="w-100"
-                leftSide={(<div> Left Side </div>)}
-                rightSide={(<div> Right Side </div>)} />
-            </DisplayCard>
-            <DisplayCard
-              className="col-6"
-              cardTitle='Toggle Component'
-            >
-              <Toggle onToggle={
-                on => console.log('toggle', on)
-              } />
-            </DisplayCard>
-          </div>
-          <div className="row">
-            {this.state.cardData.map((item) => (
+      <Provider store={store}>
+        <div className="App">
+          <div className="container">
+            <div className="row">
+              <SearchBar className="test w-100" />
+            </div>
+            <div className="row">
               <DisplayCard
                 className="col-6"
-                cardTitle={item.title}
+                cardTitle='HorizontalSplit Component'
               >
-                <p>{item.description}</p>
+                <HorizontalSplit
+                  className="w-100"
+                  leftSide={(<div> Left Side </div>)}
+                  rightSide={(<div> Right Side </div>)} />
               </DisplayCard>
-            ))}
-          </div>
-          <div className="row">
-            <AnimatedNumber
-              value={300}
-              initialValue={1}
-              style={{
-                transition: '0.8s ease-out',
-                fontSize: '2rem',
-                transitionProperty:
-                  'background-color, color, opacity'
-              }}
-              stepPrecision={0}
-              duration={300}
-            />
+              <DisplayCard
+                className="col-6"
+                cardTitle='Toggle Component'
+              >
+                <Toggle onToggle={
+                  on => console.log('toggle', on)
+                } />
+              </DisplayCard>
+            </div>
+            <div className="row">
+              {this.state.cardData.map((item) => (
+                <DisplayCard
+                  className="col-6"
+                  cardTitle={item.title}
+                >
+                  <p>{item.description}</p>
+                </DisplayCard>
+              ))}
+            </div>
+            <div className="row">
+              <AnimatedNumber
+                value={300}
+                initialValue={1}
+                style={{
+                  transition: '0.8s ease-out',
+                  fontSize: '2rem',
+                  transitionProperty:
+                    'background-color, color, opacity'
+                }}
+                stepPrecision={0}
+                duration={300}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </Provider>
     );
   }
 }
