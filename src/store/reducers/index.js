@@ -1,6 +1,6 @@
-const initialState = {
-  items: []
-};
+import { combineReducers } from 'redux'
+import todos from './todos'
 
-const rootReducer = (state = initialState, action) => state;
-export default rootReducer;
+export default combineReducers({
+  todos
+})

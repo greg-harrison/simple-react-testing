@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import rootReducer from './store/reducers'
 import {
   cardData
 } from './assets/data'
@@ -12,7 +13,8 @@ import { SearchBar } from './components/searchBar/searchBar'
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Number } from 'core-js';
+
+const store = createStore(rootReducer)
 
 class App extends React.Component {
   constructor(props) {
