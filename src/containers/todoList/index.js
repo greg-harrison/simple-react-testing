@@ -23,9 +23,9 @@ const TodoList = pure(({ todos, toggleTodo }) => {
           <DisplayCard
             className={todo.completed ? 'completed' : ''}
             cardTitle={todo.title}>
-            <strong>
+            <span className="card-body-description">
               {todo.description}
-            </strong>
+            </span>
             <Toggle onToggle={() => toggle(todo.id)} />
           </DisplayCard>
         )

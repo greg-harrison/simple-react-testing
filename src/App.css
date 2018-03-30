@@ -42,8 +42,24 @@ body, html {
 
 .displayCard {
   padding: 10px;
+  margin-bottom: 5px;
 }
 
 .displayCard.completed>.card-header{
   background-color: #86d993;
+}
+
+.displayCard>.card-body>.card-body-description{
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cardForm>label {
+  clear: both;
+  width: 100%;
+}
+
+.cardForm>label>input {
+  border: 0;
+  border-bottom: 1px solid black;
 }
