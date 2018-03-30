@@ -15,20 +15,17 @@ export default class DisplayCard extends React.Component {
     onToggle: () => { }
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
   render() {
+    console.log('this.props.className', this.props.className);
     return (
-      <div className={`displayCard card p-0 ${this.props.className}`}>
+      <div className={'displayCard card p-0 ' + this.props.className}>
         <div className="card-header">
           {this.props.cardTitle}
         </div>
         <div>
           {this.props.children}
         </div>
-      </div>
+      </div >
     )
   }
 }

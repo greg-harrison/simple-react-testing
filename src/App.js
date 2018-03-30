@@ -1,8 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import {
-  cardData
-} from './assets/data'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
 import DisplayCard from './components/displayCard/displayCard'
@@ -16,14 +13,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      cardData: cardData
-    }
-  }
-
   render() {
     return (
       <Provider store={store}>
@@ -49,8 +38,10 @@ class App extends React.Component {
               </DisplayCard>
             </div>
             <div className="row">
-              <TodoForm />
-              <TodoList />
+              <HorizontalSplit
+                leftSide={(<TodoForm />)}
+                rightSide={(<TodoList />)}
+              />
             </div>
           </div>
         </div>
