@@ -16,6 +16,7 @@ class App extends React.Component {
   componentDidMount() {
     // If you're going to make an AJAX call. It goes here.
     // This allows you to use setState to update the component once the data is retrieved
+    // MORE INFO: https://reactjs.org/docs/faq-ajax.html
   }
 
   render() {
