@@ -19,8 +19,14 @@ const TodoForm = ({ addTodo }) => {
   return (
     <div>
       <form onSubmit={e => submitTodo(e)}>
-        <input ref={node => titleInput = node} />
-        <input ref={node => descriptionInput = node} />
+        <label>
+          <p className="p-0 m-0">Title</p>
+          <input ref={node => titleInput = node} />
+        </label>
+        <label>
+          <p className="p-0 m-0">Description</p>
+          <input ref={node => descriptionInput = node} />
+        </label>
         <button type="submit">
           Add
         </button>

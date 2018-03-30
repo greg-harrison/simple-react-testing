@@ -17,8 +17,9 @@ const TodoList = pure(({ todos, toggleTodo }) => {
 
   return (
     <div>
-      {todos.map(todo =>
-        (
+      {todos.map(todo => {
+        console.log('todo', todo);
+        return (
           <DisplayCard
             className={todo.completed ? 'completed' : ''}
             cardTitle={todo.title}>
@@ -28,6 +29,7 @@ const TodoList = pure(({ todos, toggleTodo }) => {
             <Toggle onToggle={() => toggle(todo.id)} />
           </DisplayCard>
         )
+      }
       )}
     </div>
   )

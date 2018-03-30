@@ -45,6 +45,5 @@ body, html {
 }
 
 .displayCard.completed>.card-header{
-  background-color: red;
-  color: white;
+  background-color: #86d993;
 }
