@@ -39,6 +39,7 @@ class App extends React.Component {
             </div>
             <div className="row">
               <HorizontalSplit
+                className="w-100"
                 leftSide={(<TodoForm />)}
                 rightSide={(<TodoList />)}
               />

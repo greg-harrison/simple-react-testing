@@ -18,7 +18,7 @@ const TodoForm = ({ addTodo }) => {
 
   return (
     <div>
-      <form onSubmit={e => submitTodo(e)}>
+      <form className="cardForm" onSubmit={e => submitTodo(e)}>
         <label>
           <p className="p-0 m-0">Title</p>
           <input ref={node => titleInput = node} />

@@ -18,11 +18,11 @@ export default class DisplayCard extends React.Component {
   render() {
     console.log('this.props.className', this.props.className);
     return (
-      <div className={'displayCard card p-0 ' + this.props.className}>
+      <div className={'card p-0 displayCard ' + this.props.className}>
         <div className="card-header">
           {this.props.cardTitle}
         </div>
-        <div>
+        <div className="card-body">
           {this.props.children}
         </div>
       </div >
