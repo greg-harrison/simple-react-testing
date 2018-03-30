@@ -2,6 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../../store/actions'
 
+// TodoForm is using REFERENCE (or 'ref') to access the actual DOM element.
+// -- titleInput is receiving a constantly up-to-date version of the DOM Node.
+//
+// Should only use REF in an UNCONTROLLED Component. Otherwise e.target.value is PREFERRED
+
 const TodoForm = ({ addTodo }) => {
   let titleInput
   let descriptionInput
