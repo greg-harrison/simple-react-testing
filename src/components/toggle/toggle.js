@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch } from '../switch/switch'
+import Switch from '../switch/switch'
 import PropTypes from 'prop-types'
 
 import './toggle.css'

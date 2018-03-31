@@ -1,6 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class HorizontalSplit extends React.Component {
+  static propTypes = {
+    leftSide: PropTypes.element.isRequired,
+    rightSide: PropTypes.element.isRequired,
+    className: PropTypes.string
+  }
+
   shouldComponentUpdate() {
     return false;
   }
