@@ -1,7 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './searchBar.css'
 
-export function SearchBar({ className, ...props }) {
+
+const SearchBar = ({ className, ...props }) => {
   return (
     // Use labels
 
@@ -17,3 +19,9 @@ export function SearchBar({ className, ...props }) {
     </div>
   )
 }
+
+SearchBar.propTypes = {
+  className: PropTypes.string
+}
+
+export default SearchBar
