@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { pure } from 'recompose'
 
 import { connect } from 'react-redux'
@@ -18,7 +19,6 @@ const TodoList = pure(({ todos, toggleTodo }) => {
   return (
     <div>
       {todos.map(todo => {
-        console.log('todo', todo);
         return (
           <DisplayCard
             className={todo.completed ? 'completed' : ''}
@@ -34,6 +34,11 @@ const TodoList = pure(({ todos, toggleTodo }) => {
     </div>
   )
 })
+
+TodoList.propTypes = {
+  todos: PropTypes.array,
+  toggleTodo: PropTypes.func
+}
 
 export default connect(
   (state) => ({
