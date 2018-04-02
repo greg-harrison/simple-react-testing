@@ -46,7 +46,12 @@ class App extends React.Component {
             <div className="row">
               <HorizontalSplit
                 className="w-100"
-                leftSide={(<TodoForm />)}
+                leftSide={(
+                  <DisplayCard
+                    cardTitle="Create a Todo">
+                    <TodoForm />
+                  </DisplayCard>
+                )}
                 rightSide={(<TodoList />)}
               />
             </div>
