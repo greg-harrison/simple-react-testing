@@ -16,7 +16,6 @@ export default class DisplayCard extends React.Component {
   }
 
   render() {
-    console.log('this.props.className', this.props.className);
     return (
       <div className={'card p-0 displayCard ' + this.props.className}>
         <div className="card-header">
