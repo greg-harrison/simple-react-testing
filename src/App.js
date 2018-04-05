@@ -1,5 +1,6 @@
-import React from 'react';
-import { Provider } from 'react-redux';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Router, Route, Switch } from 'react-router'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
 import DisplayCard from './components/displayCard/displayCard'
@@ -22,22 +23,26 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <div className="App">
-          <div className="container">
-            <div className="row">
-              <HorizontalSplit
-                className="w-100"
-                leftSide={(
-                  <DisplayCard
-                    cardTitle="Create a Todo">
-                    <TodoForm />
-                  </DisplayCard>
-                )}
-                rightSide={(<TodoList />)}
-              />
+        <Router>
+          <Route path="/">
+            <div className="App">
+              <div className="container">
+                <div className="row">
+                  <HorizontalSplit
+                    className="w-100"
+                    leftSide={(
+                      <DisplayCard
+                        cardTitle="Create a Todo">
+                        <TodoForm />
+                      </DisplayCard>
+                    )}
+                    rightSide={(<TodoList />)}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </Route>
+        </Router>
       </Provider>
     );
   }
