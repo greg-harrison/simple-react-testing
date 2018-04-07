@@ -1,8 +1,9 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
+import NoMatch from './components/noMatch'
 import DisplayCard from './components/displayCard/displayCard'
 import TodoForm from './containers/todoForm'
 import TodoList from './containers/todoList'
@@ -24,24 +25,30 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <Route path="/">
-            <div className="App">
-              <div className="container">
-                <div className="row">
-                  <HorizontalSplit
-                    className="w-100"
-                    leftSide={(
-                      <DisplayCard
-                        cardTitle="Create a Todo">
-                        <TodoForm />
-                      </DisplayCard>
-                    )}
-                    rightSide={(<TodoList />)}
-                  />
+          <Switch>
+            <Route exact path="/">
+              <div className="App">
+                <div className="container">
+                  <div className="row">
+                    <HorizontalSplit
+                      className="w-100"
+                      leftSide={(
+                        <DisplayCard
+                          cardTitle="Create a Todo">
+                          <TodoForm />
+                        </DisplayCard>
+                      )}
+                      rightSide={(<TodoList />)}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </Route>
+            </Route>
+            <Route path="/test">
+              <div>Hello world</div>
+            </Route>
+            <Route component={NoMatch} />
+          </Switch>
         </BrowserRouter>
       </Provider>
     );
