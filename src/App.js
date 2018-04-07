@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { Router, Route, Switch } from 'react-router'
+import { BrowserRouter, Route } from 'react-router-dom'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
 import Toggle from './components/toggle/toggle'
 import DisplayCard from './components/displayCard/displayCard'
@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        <BrowserRouter>
           <Route path="/">
             <div className="App">
               <div className="container">
@@ -42,7 +42,7 @@ class App extends React.Component {
               </div>
             </div>
           </Route>
-        </Router>
+        </BrowserRouter>
       </Provider>
     );
   }
