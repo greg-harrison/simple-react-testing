@@ -1,46 +1,45 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-// No _Brand_ thing, just Links from Left-to-Right
-// Include a Dropdown that goes into Sub destinations
+export default class MainNavBar extends React.Component {
+  static propTypes = {
+    navbarClasses: PropTypes.array
+  }
 
-// IDEAS:
-// Pass an Array of Top Level and then
+  componentShouldUpdate() {
+    return false
+  }
 
-const MainNavBar = ({ ...props }) => {
-  let navbarClasses = ['navbar', 'navbar-expand-sm', 'navbar-dark', 'bg-dark']
-  let navItemClasses = ['nav-item']
-  return (
-    <nav className={navbarClasses.join(' ')}>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul className="navbar-nav mr-auto">
-          <li className={navItemClasses.join(' ')}>
-            <Link className="nav-link" to={'/'}>
-              Home
+  render() {
+    let navItemClasses = ['nav-item']
+    let { navbarClasses } = this.props
+
+    return (
+      <nav className={navbarClasses.join(' ')}>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav mr-auto">
+            <li className={navItemClasses.join(' ')}>
+              <Link className="nav-link" to={'/'}>
+                Home
           </Link>
-          </li>
-          <li className={navItemClasses.join(' ')}>
-            <Link className="nav-link" to={'/test'}>
-              Testing
+            </li>
+            <li className={navItemClasses.join(' ')}>
+              <Link className="nav-link" to={'/topics'}>
+                Topics
           </Link>
-          </li>
-          <li className={navItemClasses.join(' ')}>
-            <Link className="nav-link" to={'/topics'}>
-              Topic
+            </li>
+            <li className={navItemClasses.join(' ')}>
+              <Link className="nav-link" to={'/brokenlink'}>
+                404 Test
           </Link>
-          </li>
-          <li className={navItemClasses.join(' ')}>
-            <Link className="nav-link" to={'/brokenlink'}>
-              404 Test
-          </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  )
+            </li>
+          </ul>
+        </div>
+      </nav>
+    )
+  }
 }
-
-export default MainNavBar

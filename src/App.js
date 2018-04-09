@@ -23,11 +23,13 @@ class App extends React.Component {
   }
 
   render() {
+    let navbarClasses = ['navbar', 'navbar-expand-sm', 'navbar-dark', 'bg-dark']
+
     return (
       <Provider store={store}>
         <BrowserRouter>
           <div>
-            <MainNavBar />
+            <MainNavBar navbarClasses={navbarClasses} />
             <Switch>
               <Route exact path="/">
                 <div className="App">
