@@ -12,10 +12,10 @@ const MainNavBar = ({ ...props }) => {
   let navItemClasses = ['nav-item']
   return (
     <nav className={navbarClasses.join(' ')}>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav mr-auto">
           <li className={navItemClasses.join(' ')}>
             <Link className="nav-link" to={'/'}>
@@ -25,6 +25,16 @@ const MainNavBar = ({ ...props }) => {
           <li className={navItemClasses.join(' ')}>
             <Link className="nav-link" to={'/test'}>
               Testing
+          </Link>
+          </li>
+          <li className={navItemClasses.join(' ')}>
+            <Link className="nav-link" to={'/topics'}>
+              Topic
+          </Link>
+          </li>
+          <li className={navItemClasses.join(' ')}>
+            <Link className="nav-link" to={'/brokenlink'}>
+              404 Test
           </Link>
           </li>
         </ul>

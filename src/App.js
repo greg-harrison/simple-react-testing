@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import MainNavBar from './components/navigation/mainNavbar/mainNavbar'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
-import Toggle from './components/toggle/toggle'
+import Topics from './components/topics/topics'
 import NoMatch from './components/noMatch'
 import DisplayCard from './components/displayCard/displayCard'
 import TodoForm from './containers/todoForm'
@@ -49,6 +49,8 @@ class App extends React.Component {
               </Route>
               <Route path="/test">
                 <div>Hello world</div>
+              </Route>
+              <Route path="/topics" component={Topics}>
               </Route>
               <Route component={NoMatch} />
             </Switch>
