@@ -8,6 +8,7 @@ export default class MainNavBar extends React.Component {
   }
 
   componentShouldUpdate() {
+    // Best to do a componentShouldUpdate->False on Static features of the App
     return false
   }
 
