@@ -1,8 +1,9 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import MainNavBar from './components/navigation/mainNavbar/mainNavbar'
 import HorizontalSplit from './components/horizontalSplitLayout/horizontalSplitLayout'
-import Toggle from './components/toggle/toggle'
+import Topics from './components/topics/topics'
 import NoMatch from './components/noMatch'
 import DisplayCard from './components/displayCard/displayCard'
 import TodoForm from './containers/todoForm'
@@ -22,33 +23,40 @@ class App extends React.Component {
   }
 
   render() {
+    let navbarClasses = ['navbar', 'navbar-expand-sm', 'navbar-dark', 'bg-dark']
+
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/">
-              <div className="App">
-                <div className="container">
-                  <div className="row">
-                    <HorizontalSplit
-                      className="w-100"
-                      leftSide={(
-                        <DisplayCard
-                          cardTitle="Create a Todo">
-                          <TodoForm />
-                        </DisplayCard>
-                      )}
-                      rightSide={(<TodoList />)}
-                    />
+          <div>
+            <MainNavBar navbarClasses={navbarClasses} />
+            <Switch>
+              <Route exact path="/">
+                <div className="App">
+                  <div className="container">
+                    <div className="row">
+                      <HorizontalSplit
+                        className="w-100"
+                        leftSide={(
+                          <DisplayCard
+                            cardTitle="Create a Todo">
+                            <TodoForm />
+                          </DisplayCard>
+                        )}
+                        rightSide={(<TodoList />)}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Route>
-            <Route path="/test">
-              <div>Hello world</div>
-            </Route>
-            <Route component={NoMatch} />
-          </Switch>
+              </Route>
+              <Route path="/test">
+                <div>Hello world</div>
+              </Route>
+              <Route path="/topics" component={Topics}>
+              </Route>
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
         </BrowserRouter>
       </Provider>
     );
