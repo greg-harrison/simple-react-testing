@@ -7,8 +7,8 @@ export default class MainNavBar extends React.Component {
     navbarClasses: PropTypes.array
   }
 
-  componentShouldUpdate() {
-    // Best to do a componentShouldUpdate->False on Static features of the App
+  shouldComponentUpdate() {
+    // Best to do a shouldComponentUpdate->False on Static features of the App
     return false
   }
 
@@ -26,17 +26,22 @@ export default class MainNavBar extends React.Component {
             <li className={navItemClasses.join(' ')}>
               <Link className="nav-link" to={'/'}>
                 Home
-          </Link>
+              </Link>
+            </li>
+            <li className={navItemClasses.join(' ')}>
+              <Link className="nav-link" to={'/gifs'}>
+                Gifs
+              </Link>
             </li>
             <li className={navItemClasses.join(' ')}>
               <Link className="nav-link" to={'/topics'}>
                 Topics
-          </Link>
+              </Link>
             </li>
             <li className={navItemClasses.join(' ')}>
               <Link className="nav-link" to={'/brokenlink'}>
                 404 Test
-          </Link>
+              </Link>
             </li>
           </ul>
         </div>
