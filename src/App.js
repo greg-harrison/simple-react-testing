@@ -8,6 +8,7 @@ import NoMatch from './components/noMatch'
 import DisplayCard from './components/displayCard/displayCard'
 import TodoForm from './containers/todoForm'
 import TodoList from './containers/todoList'
+import GiphySearch from './containers/giphySearch'
 
 import store from './store'
 
@@ -49,8 +50,7 @@ class App extends React.Component {
                   </div>
                 </div>
               </Route>
-              <Route path="/test">
-                <div>Hello world</div>
+              <Route path="/gifs" component={GiphySearch}>
               </Route>
               <Route path="/topics" component={Topics}>
               </Route>
