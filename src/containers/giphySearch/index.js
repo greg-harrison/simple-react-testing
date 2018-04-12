@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Loading from '../../components/spinLoad'
 
 const GiphySearch = ({ className, ...props }) => {
   return (
@@ -15,6 +16,7 @@ const GiphySearch = ({ className, ...props }) => {
       <a className="clearfix" href="https://medium.com/styled-components/component-folder-pattern-ee42df37ec68" target="_blank">
         Medium post that I must have taken this idea from subconciously.
       </a>
+      <Loading />
     </div>
   );
 }
