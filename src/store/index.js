@@ -4,14 +4,18 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { createLogger } from 'redux-logger'
 import rootReducer from './reducers'
 
+const middleware = []
+
 let logger = createLogger({
-  collapsed: (getState, action) => (
-    action.expandInLog ? false : true
-  ),
+  collapsed: (getState, action) => {
+    return (
+      action.expandInLog ? false : true
+    )
+  },
   level: 'info'
 })
 
-let middleware = { logger }
+middleware.push(logger)
 
 const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(...middleware)
