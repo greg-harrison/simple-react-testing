@@ -1,3 +1,5 @@
+import fetchTodos from '../api'
+
 const initialState = []
 
 const todos = (state = initialState, action) => {
