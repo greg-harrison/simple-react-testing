@@ -2,11 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './searchBar.css'
 
-
 const SearchBar = ({ className, ...props }) => {
   return (
-    // Use labels
-
     <div className={`searchBar ${className}`}>
       <input
         className="searchBar_input"
