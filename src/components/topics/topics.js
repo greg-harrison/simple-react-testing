@@ -4,10 +4,6 @@ import { Route, Link } from 'react-router-dom'
 import Topic from '../topic/topic'
 
 const Topics = ({ match, location }) => {
-
-  console.log('match', match);
-  console.log('location', location);
-
   return (
     <div>
       <h2>Topics</h2>
