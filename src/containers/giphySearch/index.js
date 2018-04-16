@@ -10,10 +10,14 @@ const GiphySearch = ({ className, ...props }) => {
         <li>Want to load these values into a Redux Store</li>
         <li>Want to use different states (Ready, Loading, Done) to show a loading animation while it's making the request</li>
       </ul>
-      <a className="clearfix" href="https://developers.giphy.com/docs/" target="_blank">
+      <a className="clearfix" href="https://developers.giphy.com/docs/" target="_blank" rel="noopener noreferrer">
         Giphy Documentation
       </a>
-      <a className="clearfix" href="https://medium.com/styled-components/component-folder-pattern-ee42df37ec68" target="_blank">
+      <a className="clearfix"
+        href="https://medium.com/styled-components/component-folder-pattern-ee42df37ec68"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Medium post that I must have taken this idea from subconciously.
       </a>
       <Loading />
