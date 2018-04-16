@@ -1,4 +1,3 @@
-import fetchTodos from '../api'
 
 const initialState = []
 
