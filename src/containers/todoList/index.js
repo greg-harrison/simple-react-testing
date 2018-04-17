@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { pure } from 'recompose'
 
 import { connect } from 'react-redux'
 import { toggleTodo } from '../../store/actions'
@@ -8,32 +7,52 @@ import { toggleTodo } from '../../store/actions'
 import DisplayCard from '../../components/displayCard/displayCard'
 import Toggle from '../../components/toggle/toggle'
 
-const getTodos = (data) => data.todos
+import { getVisibleTodos, getErrorMessage, getIsFetching } from '../reducers';
 
-const TodoList = pure(({ todos, toggleTodo }) => {
+class TodoList extends React.Component {
 
-  function toggle(id) {
-    toggleTodo(id)
+  componentDidMount() {
+    this.fetchData();
   }
 
-  return (
-    <div>
-      {todos.map(todo => {
-        return (
-          <DisplayCard
-            className={todo.completed ? 'completed' : ''}
-            cardTitle={todo.title}>
-            <span className="card-body-description">
-              {todo.description}
-            </span>
-            <Toggle onToggle={() => toggle(todo.id)} />
-          </DisplayCard>
+  componentDidUpdate(prevProps) {
+    if (this.props.filter !== prevProps.filter) {
+      this.fetchData();
+    }
+  }
+
+  fetchData() {
+    const { fetchTodos } = this.props;
+    fetchTodos();
+  }
+
+  toggle(id) {
+    this.props.toggleTodo(id)
+  }
+
+  render() {
+    const { todos } = this.props
+
+    return (<div>
+      {
+        todos.map(todo => {
+          return (
+            <DisplayCard
+              className={todo.completed ? 'completed' : ''}
+              cardTitle={todo.title}>
+              <span className="card-body-description">
+                {todo.description}
+              </span>
+              <Toggle onToggle={() => this.toggle(todo.id)} />
+            </DisplayCard>
+          )
+        }
         )
       }
-      )}
-    </div>
-  )
-})
+    </div >
+    )
+  }
+}
 
 TodoList.propTypes = {
   todos: PropTypes.array,
@@ -42,7 +61,7 @@ TodoList.propTypes = {
 
 export default connect(
   (state) => ({
-    todos: getTodos(state)
+    todos: getVisibleTodos(state)
   }),
   ({
     toggleTodo
