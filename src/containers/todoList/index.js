@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import { toggleTodo } from '../../store/actions'
+import { toggleTodo, fetchTodos } from '../../store/actions'
 
 import DisplayCard from '../../components/displayCard/displayCard'
 import Toggle from '../../components/toggle/toggle'
-
-import { getVisibleTodos, getErrorMessage, getIsFetching } from '../reducers';
 
 class TodoList extends React.Component {
 
@@ -22,8 +20,7 @@ class TodoList extends React.Component {
   }
 
   fetchData() {
-    const { fetchTodos } = this.props;
-    fetchTodos();
+    this.props.fetchTodos();
   }
 
   toggle(id) {
@@ -61,9 +58,10 @@ TodoList.propTypes = {
 
 export default connect(
   (state) => ({
-    todos: getVisibleTodos(state)
+    todos: []
   }),
   ({
-    toggleTodo
+    toggleTodo,
+    fetchTodos
   }),
 )(TodoList)
