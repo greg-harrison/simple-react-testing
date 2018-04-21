@@ -8,7 +8,6 @@ import DisplayCard from '../../components/displayCard/displayCard'
 import Toggle from '../../components/toggle/toggle'
 
 class TodoList extends React.Component {
-
   componentDidMount() {
     this.fetchData();
   }
