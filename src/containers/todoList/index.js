@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import { toggleTodo, fetchTodos } from '../../store/actions'
+import { getVisibleTodos, getErrorMessage, getIsFetching } from '../../store/reducers/todos';
 
 import DisplayCard from '../../components/displayCard/displayCard'
 import Toggle from '../../components/toggle/toggle'
@@ -57,7 +58,9 @@ TodoList.propTypes = {
 
 export default connect(
   (state) => ({
-    todos: []
+    isFetching: getIsFetching(state),
+    errorMessage: getErrorMessage(state),
+    todos: getVisibleTodos(state),
   }),
   (dispatch) => ({
     toggleTodo: () => dispatch(toggleTodo()),
