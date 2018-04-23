@@ -59,8 +59,8 @@ export default connect(
   (state) => ({
     todos: []
   }),
-  ({
-    toggleTodo,
-    fetchTodos
+  (dispatch) => ({
+    toggleTodo: () => dispatch(toggleTodo()),
+    fetchTodos: () => dispatch(fetchTodos())
   }),
 )(TodoList)
