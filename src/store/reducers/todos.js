@@ -4,6 +4,10 @@ import createList, * as fromList from './createList';
 
 const initialState = []
 
+const listByFilter = combineReducers({
+  all: createList()
+})
+
 const todoUpdates = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -29,14 +33,14 @@ const todoUpdates = (state = initialState, action) => {
 
 const todos = combineReducers({
   byId,
-  todoUpdates
+  todoUpdates,
+  listByFilter
 })
 
 export default todos
 
 export const getVisibleTodos = (state) => {
-  console.log('fromList.getIds(createList);', fromList.getIds(createList));
-  const ids = fromList.getIds(createList);
+  const ids = fromList.getIds(state.listByFilter);
   return ids.map(id => fromById.getTodo(state.byId, id));
 };
 
