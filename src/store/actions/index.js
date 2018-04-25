@@ -1,9 +1,9 @@
 import { v4 } from 'node-uuid';
 import * as api from '../api'
-import rootReducer from '../reducers'
+import { getIsFetching } from '../reducers/createList'
 
 export const fetchTodos = () => (dispatch, getState) => {
-  if (rootReducer.getIsFetching(getState())) {
+  if (getIsFetching(getState())) {
     return Promise.resolve();
   }
 

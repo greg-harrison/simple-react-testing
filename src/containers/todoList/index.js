@@ -58,9 +58,9 @@ TodoList.propTypes = {
 
 export default connect(
   (state) => ({
-    isFetching: getIsFetching(state),
-    errorMessage: getErrorMessage(state),
-    todos: getVisibleTodos(state),
+    isFetching: getIsFetching(state.todos),
+    errorMessage: getErrorMessage(state.todos),
+    todos: getVisibleTodos(state.todos),
   }),
   (dispatch) => ({
     toggleTodo: () => dispatch(toggleTodo()),
