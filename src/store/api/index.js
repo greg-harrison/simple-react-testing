@@ -28,6 +28,7 @@ const delay = (ms) =>
 
 export const fetchTodos = () =>
   delay(500).then(() => {
+    console.log('fetching');
     if (Math.random() > 0.5) {
       throw new Error('Boom!');
     }
