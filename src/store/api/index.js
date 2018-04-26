@@ -35,3 +35,21 @@ export const fetchTodos = () =>
 
     return mockDB.todos;
   });
+
+export const addTodo = (text) =>
+  delay(500).then(() => {
+    const todo = {
+      id: v4(),
+      text,
+      completed: false,
+    };
+    mockDB.todos.push(todo);
+    return todo;
+  });
+
+export const toggleTodo = (id) =>
+  delay(500).then(() => {
+    const todo = mockDB.todos.find(t => t.id === id);
+    todo.completed = !todo.completed;
+    return todo;
+  });
