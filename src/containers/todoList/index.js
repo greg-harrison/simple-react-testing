@@ -33,6 +33,7 @@ class TodoList extends React.Component {
     return (<div>
       {
         todos.map(todo => {
+          console.log('todo', todo);
           return (
             <DisplayCard
               className={todo.completed ? 'completed' : ''}
