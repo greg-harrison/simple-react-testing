@@ -36,11 +36,12 @@ export const fetchTodos = () =>
     return mockDB.todos;
   });
 
-export const addTodo = (text) =>
+export const addTodo = (text, description) =>
   delay(500).then(() => {
     const todo = {
       id: v4(),
       text,
+      description,
       completed: false,
     };
     mockDB.todos.push(todo);
