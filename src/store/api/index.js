@@ -44,6 +44,7 @@ export const addTodo = (text, description) =>
       description,
       completed: false,
     };
+    console.log('mockDB', mockDB);
     mockDB.todos.push(todo);
     return todo;
   });

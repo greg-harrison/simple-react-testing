@@ -33,7 +33,6 @@ class TodoList extends React.Component {
     return (<div>
       {
         todos.map(todo => {
-          console.log('todo', todo);
           return (
             <DisplayCard
               className={todo.completed ? 'completed' : ''}
@@ -58,11 +57,13 @@ TodoList.propTypes = {
 }
 
 export default connect(
-  (state) => ({
-    isFetching: getIsFetching(state.todos),
-    errorMessage: getErrorMessage(state.todos),
-    todos: getVisibleTodos(state.todos),
-  }),
+  (state) => {
+    return {
+      isFetching: getIsFetching(state.todos),
+      errorMessage: getErrorMessage(state.todos),
+      todos: getVisibleTodos(state.todos),
+    }
+  },
   (dispatch) => ({
     toggleTodo: () => dispatch(toggleTodo()),
     fetchTodos: () => dispatch(fetchTodos())
