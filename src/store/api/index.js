@@ -28,11 +28,6 @@ const delay = (ms) =>
 
 export const fetchTodos = () =>
   delay(500).then(() => {
-    console.log('fetching');
-    if (Math.random() > 0.5) {
-      throw new Error('Boom!');
-    }
-
     return mockDB.todos;
   });
 
@@ -44,7 +39,6 @@ export const addTodo = (text, description) =>
       description,
       completed: false,
     };
-    console.log('mockDB', mockDB);
     mockDB.todos.push(todo);
     return todo;
   });
