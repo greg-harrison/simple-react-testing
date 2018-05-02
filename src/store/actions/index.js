@@ -1,4 +1,5 @@
-import { v4 } from 'node-uuid';
+import { normalize } from 'normalizr';
+import * as schema from './schema';
 import * as api from '../api'
 import { getIsFetching } from '../reducers/createList'
 
@@ -15,7 +16,7 @@ export const fetchTodos = () => (dispatch, getState) => {
     response => {
       dispatch({
         type: 'FETCH_TODOS_SUCCESS',
-        response,
+        response: normalize(response, schema.arrayOfTodos),
       });
     },
     error => {
@@ -27,14 +28,19 @@ export const fetchTodos = () => (dispatch, getState) => {
   );
 };
 
-export const addTodo = (title, description) => ({
-  type: 'ADD_TODO',
-  id: v4(),
-  title,
-  description
-})
+export const addTodo = (text, description) => (dispatch) =>
+  api.addTodo(text, description).then(response => {
+    dispatch({
+      type: 'ADD_TODO_SUCCESS',
+      response: normalize(response, schema.todo),
+    });
+  });
 
-export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
-  id
-})
+
+export const toggleTodo = (id) => (dispatch) =>
+  api.toggleTodo(id).then(response => {
+    dispatch({
+      type: 'TOGGLE_TODO_SUCCESS',
+      response: normalize(response, schema.todo),
+    });
+  });
