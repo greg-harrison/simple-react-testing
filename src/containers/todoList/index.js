@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import { toggleTodo, fetchTodos } from '../../store/actions'
-import { getVisibleTodos, getErrorMessage, getIsFetching } from '../../store/reducers/todos';
+import { getVisibleTodos, getErrorMessage, getIsFetching } from '../../store/reducers';
 
 import DisplayCard from '../../components/displayCard/displayCard'
 import Toggle from '../../components/toggle/toggle'
@@ -33,6 +33,7 @@ class TodoList extends React.Component {
     return (<div>
       {
         todos.map(todo => {
+          console.log('todo', todo);
           return (
             <DisplayCard
               className={todo.completed ? 'completed' : ''}

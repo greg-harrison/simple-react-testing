@@ -1,24 +1,27 @@
 import { createStore, applyMiddleware } from 'redux'
-import thunkMiddleware from 'redux-thunk'
+import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createLogger } from 'redux-logger'
 import rootReducer from './reducers'
 
-const middleware = []
+const configuredStore = () => {
 
-let logger = createLogger({
-  collapsed: (getState, action) => {
-    return (
-      action.expandInLog ? false : true
-    )
-  },
-  level: 'info'
-})
+  const middleware = []
 
-middleware.push(logger, thunkMiddleware)
+  let logger = createLogger({
+    collapsed: (getState, action) => {
+      return (
+        action.expandInLog ? false : true
+      )
+    },
+    level: 'info'
+  })
 
-const store = createStore(rootReducer, composeWithDevTools(
-  applyMiddleware(...middleware)
-))
+  middleware.push(thunk, logger)
 
-export default store
+  createStore(rootReducer, composeWithDevTools(
+    applyMiddleware(...middleware)
+  ))
+}
+
+export default configuredStore
