@@ -19,7 +19,7 @@ const configuredStore = () => {
 
   middleware.push(thunk, logger)
 
-  createStore(rootReducer, composeWithDevTools(
+  return createStore(rootReducer, composeWithDevTools(
     applyMiddleware(...middleware)
   ))
 }
